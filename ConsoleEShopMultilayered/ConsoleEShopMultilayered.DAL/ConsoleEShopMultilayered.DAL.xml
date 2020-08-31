@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsoleEShopMultilayered.DAL</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleEShopMultilayered.DAL.IUnitOfWork">
+            <summary>
+            Interface unit of work for repositories
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.IUnitOfWork.ProductRepository">
+            <summary>
+            Repository that handle data about products 
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.IUnitOfWork.UserRepository">
+            <summary>
+            Repository that handle data about users 
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.IUnitOfWork.OrderRepository">
+            <summary>
+            Repository that handle data about orders 
+            </summary>  
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Models.Administrator">
+            <summary>
+            Model for administrator role
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Administrator.FullName">
+            <summary>
+            name + surname
+            </summary>  
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Models.IRegisteredUser">
+            <summary>
+            Interface of model for all registered users
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.IRegisteredUser.Id">
+            <summary>
+            Id of user
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.IRegisteredUser.UserName">
+            <summary>
+            username, login
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.IRegisteredUser.Password">
+            <summary>
+            Password
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.IRegisteredUser.Email">
+            <summary>
+            Email
+            </summary>  
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Models.Order">
+            <summary>
+            Model for ordes
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Order.Id">
+            <summary>
+            id
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Order.IdUser">
+            <summary>
+            id of user that create this order
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Order.IdProduct">
+            <summary>
+            id of product that ordered
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Order.State">
+            <summary>
+            order state
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Order.Name">
+            <summary>
+            short name of order
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Order.Description">
+            <summary>
+            description 
+            </summary>  
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Models.OrderState">
+            <summary>
+            States of order
+            </summary>  
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Models.Product">
+            <summary>
+            Model for product
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Product.Id">
+            <summary>
+            id
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Product.Price">
+            <summary>
+            price
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Product.Name">
+            <summary>
+            short name
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.Product.Description">
+            <summary>
+            description
+            </summary>  
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Models.RegisteredUser">
+            <summary>
+            Id of user
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.RegisteredUser.Id">
+            <summary>
+            Id of user
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.RegisteredUser.UserName">
+            <summary>
+            username, login
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.RegisteredUser.Password">
+            <summary>
+            Password
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.Models.RegisteredUser.Email">
+            <summary>
+            Email
+            </summary>  
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Repository.IRepository.IOrderRepository">
+            <summary>
+            Interface for order repository
+            </summary>  
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.IRepository.IOrderRepository.GetAllUserOrdersByIdUser(System.Int32)">
+            <summary>
+            Returns list of orders for user
+            </summary>  
+            <param name="IdUser">id of user</param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.IRepository.IOrderRepository.UpdateState(System.Int32,ConsoleEShopMultilayered.DAL.Models.OrderState)">
+            <summary>
+            update order state
+            </summary>  
+             <param name="id">id of orde</param>
+             <param name="state">new state</param>
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Repository.IRepository.IProductRepository">
+            <summary>
+            Interface for product repository
+            </summary>  
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.IRepository.IProductRepository.GetProductsByName(System.String)">
+            <summary>
+            Get list of products by user name
+            </summary>  
+            <param name="name">user name</param>
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Repository.IRepository.IRepository`1">
+            <summary>
+            Interface for repository
+            </summary>  
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.IRepository.IRepository`1.GetAll">
+            <summary>
+            Get list of all elements
+            </summary>  
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.IRepository.IRepository`1.Add(`0)">
+            <summary>
+            Save element
+            </summary>  
+            <param name="item">element to save</param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.IRepository.IRepository`1.FindItemByKey(System.String)">
+            <summary>
+            Get element by key
+            </summary>  
+            <param name="key">key for search</param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.IRepository.IRepository`1.FindItemById(System.Int32)">
+            <summary>
+            Get element by id
+            </summary>  
+            <param name="Id">id for search</param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.IRepository.IRepository`1.Update(`0,`0)">
+            <summary>
+            update and return resulted element
+            </summary>  
+            <param name="oldItem">element to delete</param>
+             <param name="newItem">element to save</param>
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Repository.IRepository.IUserRepository">
+            <summary>
+            Interface for user repository
+            </summary>  
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.Repository.RepositoryFactory">
+            <summary>
+            Factory of repositories
+            </summary>  
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.RepositoryFactory.#ctor(ConsoleEShopMultilayered.DAL.Repository.RepositoryType,ConsoleEShopMultilayered.DAL.Repository.RepositoryType,ConsoleEShopMultilayered.DAL.Repository.RepositoryType)">
+            <summary>
+            Sets types of repositories that will be created
+            </summary>  
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.RepositoryFactory.GetUserRepository">
+            <summary>
+            Create user repository
+            </summary>  
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.RepositoryFactory.GetProductRepository">
+            <summary>
+            Create product repository
+            </summary>  
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.Repository.RepositoryFactory.GetOrderRepository">
+            <summary>
+            Create order repository
+            </summary>  
+        </member>
+        <member name="T:ConsoleEShopMultilayered.DAL.UnitOfWork">
+            <summary>
+            class unit of work for repositories
+             </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.UnitOfWork.ProductRepository">
+            <summary>
+            Repository that handle data about products 
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.UnitOfWork.UserRepository">
+            <summary>
+            Repository that handle data about users 
+            </summary>  
+        </member>
+        <member name="P:ConsoleEShopMultilayered.DAL.UnitOfWork.OrderRepository">
+            <summary>
+            Repository that handle data about orders 
+            </summary>  
+        </member>
+        <member name="M:ConsoleEShopMultilayered.DAL.UnitOfWork.#ctor">
+            <summary>
+            Constructor that init repositories
+            </summary>  
+        </member>
+    </members>
+</doc>

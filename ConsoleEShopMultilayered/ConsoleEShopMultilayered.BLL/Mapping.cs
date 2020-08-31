@@ -4,6 +4,9 @@ using ConsoleEShopMultilayered.BLL.VievModels;
 
 namespace ConsoleEShopMultilayered.BLL
 {
+    /// <summary>
+    /// Configuration for mapping objects from DAL models into PL models 
+    /// </summary> 
     public static class Mapping
     {
         static readonly MapperConfiguration config = new MapperConfiguration(cfg =>
@@ -16,6 +19,9 @@ namespace ConsoleEShopMultilayered.BLL
             cfg.CreateMap<OrderViewModel, Order>();
         });
 
+        /// <summary>
+        /// mapper object to map
+        /// </summary> 
         public static Mapper Mapper { get; set; } = new Mapper(config);
     }
 

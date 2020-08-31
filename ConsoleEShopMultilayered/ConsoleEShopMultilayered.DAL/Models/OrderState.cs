@@ -1,5 +1,8 @@
 ﻿namespace ConsoleEShopMultilayered.DAL.Models
 {
+    /// <summary>
+    /// States of order
+    /// </summary>  
     public enum OrderState
     {
         New,

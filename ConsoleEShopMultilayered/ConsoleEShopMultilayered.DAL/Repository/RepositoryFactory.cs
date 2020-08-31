@@ -3,6 +3,9 @@ using Moq;
 
 namespace ConsoleEShopMultilayered.DAL.Repository
 {
+    /// <summary>
+    /// Factory of repositories
+    /// </summary>  
     public class RepositoryFactory
     {
 
@@ -10,6 +13,9 @@ namespace ConsoleEShopMultilayered.DAL.Repository
         RepositoryType ProductRepositoryType { get; set; }
         RepositoryType OrderRepositoryType { get; set; }
 
+        /// <summary>
+        /// Sets types of repositories that will be created
+        /// </summary>  
         public RepositoryFactory(RepositoryType userRepositoryType, RepositoryType productRepositoryType, RepositoryType orderRepositoryType)
         {
             this.UserRepositoryType = userRepositoryType;
@@ -17,6 +23,9 @@ namespace ConsoleEShopMultilayered.DAL.Repository
             this.OrderRepositoryType = orderRepositoryType;
         }
 
+        /// <summary>
+        /// Create user repository
+        /// </summary>  
         public IUserRepository GetUserRepository()
         {
             if (this.UserRepositoryType == RepositoryType.Mock)
@@ -27,6 +36,9 @@ namespace ConsoleEShopMultilayered.DAL.Repository
                 return new Mock<IUserRepository>().Object;
         }
 
+        /// <summary>
+        /// Create product repository
+        /// </summary>  
         public IProductRepository GetProductRepository()
         {
             if (this.ProductRepositoryType == RepositoryType.Mock)
@@ -37,6 +49,9 @@ namespace ConsoleEShopMultilayered.DAL.Repository
                 return new Mock<IProductRepository>().Object;
         }
 
+        /// <summary>
+        /// Create order repository
+        /// </summary>  
         public IOrderRepository GetOrderRepository()
         {
             if (this.OrderRepositoryType == RepositoryType.Mock)

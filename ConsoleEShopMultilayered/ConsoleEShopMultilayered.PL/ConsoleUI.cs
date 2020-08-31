@@ -8,23 +8,48 @@ using ConsoleEShopMultilayered.BLL.VievModels;
 
 namespace ConsoleEShopMultilayered.PL
 {
-    class ConsoleUI
+    /// <summary>
+    /// Console user interface
+    /// </summary>
+    public class ConsoleUI
     {
-        public IRegisteredUser User;
+        /// <summary>
+        /// Current user
+        /// </summary>
+        public IRegisteredUser User { get; set; }
 
+        /// <summary>
+        /// Inputed string by user
+        /// </summary>
         string userAction;
 
+        /// <summary>
+        /// Delegate for functions that outputs pages of console interface
+        /// </summary>
         delegate void InterfacePages();
+        /// <summary>
+        /// Instance of delegate for functions that outputs pages of console interface
+        /// </summary>
         private InterfacePages page;
 
-        Controller Controller { get; set; }
+        /// <summary>
+        /// Field for connection with BLL
+        /// </summary>
+        IController Controller { get; set; }
 
-        public ConsoleUI(IRegisteredUser user, Controller controller)
+        /// <summary>
+        /// Constructor that sets user,controller and page
+        /// </summary>
+        public ConsoleUI(IRegisteredUser user, IController controller)
         {
             this.User = user;
             this.Controller = controller;
             this.page = MainPage;
         }
+
+        /// <summary>
+        /// Starts and keep console user interface
+        /// </summary>
         public void Start()
         {
             while (this.page != null)
@@ -35,6 +60,9 @@ namespace ConsoleEShopMultilayered.PL
 
         }
 
+        /// <summary>
+        /// Output main pagee and work with user actions
+        /// </summary>
         public void MainPage()
         {
 
@@ -73,12 +101,18 @@ namespace ConsoleEShopMultilayered.PL
                 this.page = SignOff;
         }
 
+        /// <summary>
+        /// Set current user as guest and sends to main page
+        /// </summary>
         private void SignOff()
         {
             this.User = null;
             this.page = MainPage;
         }
 
+        /// <summary>
+        /// Get fields from user and try to sign up new user in system
+        /// </summary>
         private void SignUp()
         {
             RegisterUserViewModel userViewModel = new RegisterUserViewModel();
@@ -110,6 +144,9 @@ namespace ConsoleEShopMultilayered.PL
 
         }
 
+        /// <summary>
+        /// Get fields from user and try to sign in system
+        /// </summary>
         private void SignIn()
         {
             RegisterUserViewModel userViewModel = new RegisterUserViewModel();
@@ -126,7 +163,9 @@ namespace ConsoleEShopMultilayered.PL
 
         }
 
-
+        /// <summary>
+        /// Output page with all users and work with user actions
+        /// </summary>
         private void ListOfUsers()
         {
             this.Clear();
@@ -169,6 +208,9 @@ namespace ConsoleEShopMultilayered.PL
             }
         }
 
+        /// <summary>
+        /// Output page with information about current user and work with user actions
+        /// </summary>
         private void PersonalInformationOfCurrentUser()
         {
             if (this.User != null)
@@ -198,6 +240,9 @@ namespace ConsoleEShopMultilayered.PL
             }
         }
 
+        /// <summary>
+        /// Output page with information about current user and change information in current users profile
+        /// </summary>
         private void ChangePersonalInformation(string userEmail)
         {
 
@@ -270,13 +315,18 @@ namespace ConsoleEShopMultilayered.PL
             }
         }
 
-
+        /// <summary>
+        /// get products from BLL
+        /// </summary>
         private void GetListOfAllProducts()
         {
             List<Product> products = Controller.ProductController.GetListOfProducts();
             this.ListOfProducts(products);
         }
 
+        /// <summary>
+        /// Get information from uset and try to find product by sequesting BLL
+        /// </summary>
         private void FindProductByName()
         {
             Console.Clear();
@@ -286,7 +336,9 @@ namespace ConsoleEShopMultilayered.PL
             this.ListOfProducts(this.Controller.ProductController.FindProductsbyName(this.userAction));
         }
 
-
+        /// <summary>
+        /// Output page with information about products and work with user actions
+        /// </summary>
         private void ListOfProducts(List<Product> products)
         {
             this.Clear();
@@ -327,7 +379,9 @@ namespace ConsoleEShopMultilayered.PL
         }
 
 
-
+        /// <summary>
+        /// Output page with creating form of new product and send product in BLL
+        /// </summary>
         private void CreateNewProduct()
         {
             Product product = new Product();
@@ -383,7 +437,9 @@ namespace ConsoleEShopMultilayered.PL
 
 
 
-
+        /// <summary>
+        /// Output page with information about current user orders and work with user actions
+        /// </summary>
         private void OrderHistory()
         {
             this.Clear();
@@ -416,6 +472,10 @@ namespace ConsoleEShopMultilayered.PL
             }
         }
 
+        /// <summary>
+        /// Get order from BLL and invoke functions to change order status basing on current user rights
+        /// </summary>
+        /// <param name="id">id of order</param>
         private void ChangeOrderStatus(int id)
         {
             var order = this.Controller.OrderController.GetOrderById(id);
@@ -427,6 +487,10 @@ namespace ConsoleEShopMultilayered.PL
 
         }
 
+        /// <summary>
+        /// Change status of order with admin rigths
+        /// </summary>
+        /// <param name="order">order to change status</param>
         private void ChangeOrderStatusByAdmin(OrderViewModel order)
         {
             bool isUpdated = false;
@@ -488,6 +552,10 @@ namespace ConsoleEShopMultilayered.PL
             }
         }
 
+        /// <summary>
+        /// Change status of order with user rigths
+        /// </summary>
+        /// <param name="order">order to change status</param>
         private void ChangeOrderStatusByUser(OrderViewModel order)
         {
             bool isUpdated = false;
@@ -537,7 +605,10 @@ namespace ConsoleEShopMultilayered.PL
 
         }
 
-
+        /// <summary>
+        /// Create new order
+        /// </summary>
+        /// <param name="id">id of product that will be ordered</param>
         private void CreateNewOrder(string id)
         {
             var product = this.Controller.ProductController.GetProductByKey(id);
@@ -575,7 +646,10 @@ namespace ConsoleEShopMultilayered.PL
         }
 
 
-
+        /// <summary>
+        /// Check is entered email strin is valid
+        /// </summary>
+        /// <param name="email">email to check</param>
         public static bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
@@ -621,7 +695,9 @@ namespace ConsoleEShopMultilayered.PL
             }
         }
 
-
+        /// <summary>
+        /// Output common page information
+        /// </summary>
         public void Header()
         {
             Console.WriteLine("  BEST ESHOP BY MAX  ");
@@ -631,7 +707,9 @@ namespace ConsoleEShopMultilayered.PL
                 Console.WriteLine(" Autorized as Guest");
         }
 
-
+        /// <summary>
+        /// Output functions for admins
+        /// </summary>
         private void WriteAdministratorMainFunctions()
         {
             Console.WriteLine("show users - watch personal information of users");
@@ -639,6 +717,9 @@ namespace ConsoleEShopMultilayered.PL
 
         }
 
+        /// <summary>
+        /// Output functions for registered users
+        /// </summary>
         private void WriteRegisteredUserMainFunctions()
         {
 
@@ -649,6 +730,9 @@ namespace ConsoleEShopMultilayered.PL
             Console.WriteLine("0 - exit");
         }
 
+        /// <summary>
+        /// Output functions for guests
+        /// </summary>
         private void WriteGuestMainFunctions()
         {
 
@@ -658,6 +742,10 @@ namespace ConsoleEShopMultilayered.PL
             Console.WriteLine("sign in - autorisation");
         }
 
+        /// <summary>
+        /// Output formated user information
+        /// </summary>
+        /// <param name="user">object with user information </param>
         private void OutputUser(UsersViewModel user)
         {
             if (user != null)
@@ -668,6 +756,10 @@ namespace ConsoleEShopMultilayered.PL
             }
         }
 
+        /// <summary>
+        /// Output formated product information
+        /// </summary>
+        /// <param name="product">object with product information </param>
         private void OutputProduct(Product product)
         {
             if (product != null)
@@ -679,6 +771,10 @@ namespace ConsoleEShopMultilayered.PL
             }
         }
 
+        /// <summary>
+        /// Output formated order information
+        /// </summary>
+        /// <param name="order">object with order information </param>
         private void OutputOrder(OrderViewModel order)
         {
             if (order != null)
@@ -691,12 +787,18 @@ namespace ConsoleEShopMultilayered.PL
             }
         }
 
+        /// <summary>
+        /// Clear console and invoke outputing common page information
+        /// </summary>
         public void Clear()
         {
             Console.Clear();
             this.Header();
         }
 
+        /// <summary>
+        /// Return user action from console
+        /// </summary>
         internal string GetUserText()
         {
             return Console.ReadLine().Trim();

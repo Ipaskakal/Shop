@@ -1,4 +1,5 @@
 ﻿using ConsoleEShopMultilayered.BLL;
+using Ninject;
 
 namespace ConsoleEShopMultilayered.PL
 {
@@ -7,7 +8,9 @@ namespace ConsoleEShopMultilayered.PL
 
         static void Main()
         {
-            Controller controller = new Controller();
+            IKernel kernel = new StandardKernel();
+            kernel.Bind<IController>().To<Controller>();
+            IController controller = kernel.Get<IController>();
             ConsoleUI view = new ConsoleUI(null, controller);
             view.Start();
         }

@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsoleEShopMultilayered.PL</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleEShopMultilayered.PL.ConsoleUI">
+            <summary>
+            Console user interface
+            </summary>
+        </member>
+        <member name="P:ConsoleEShopMultilayered.PL.ConsoleUI.User">
+            <summary>
+            Current user
+            </summary>
+        </member>
+        <member name="F:ConsoleEShopMultilayered.PL.ConsoleUI.userAction">
+            <summary>
+            Inputed string by user
+            </summary>
+        </member>
+        <member name="T:ConsoleEShopMultilayered.PL.ConsoleUI.InterfacePages">
+            <summary>
+            Delegate for functions that outputs pages of console interface
+            </summary>
+        </member>
+        <member name="F:ConsoleEShopMultilayered.PL.ConsoleUI.page">
+            <summary>
+            Instance of delegate for functions that outputs pages of console interface
+            </summary>
+        </member>
+        <member name="P:ConsoleEShopMultilayered.PL.ConsoleUI.Controller">
+            <summary>
+            Field for connection with BLL
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.#ctor(ConsoleEShopMultilayered.DAL.Models.IRegisteredUser,ConsoleEShopMultilayered.BLL.IController)">
+            <summary>
+            Constructor that sets user,controller and page
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.Start">
+            <summary>
+            Starts and keep console user interface
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.MainPage">
+            <summary>
+            Output main pagee and work with user actions
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.SignOff">
+            <summary>
+            Set current user as guest and sends to main page
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.SignUp">
+            <summary>
+            Get fields from user and try to sign up new user in system
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.SignIn">
+            <summary>
+            Get fields from user and try to sign in system
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.ListOfUsers">
+            <summary>
+            Output page with all users and work with user actions
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.PersonalInformationOfCurrentUser">
+            <summary>
+            Output page with information about current user and work with user actions
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.ChangePersonalInformation(System.String)">
+            <summary>
+            Output page with information about current user and change information in current users profile
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.GetListOfAllProducts">
+            <summary>
+            get products from BLL
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.FindProductByName">
+            <summary>
+            Get information from uset and try to find product by sequesting BLL
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.ListOfProducts(System.Collections.Generic.List{ConsoleEShopMultilayered.DAL.Models.Product})">
+            <summary>
+            Output page with information about products and work with user actions
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.CreateNewProduct">
+            <summary>
+            Output page with creating form of new product and send product in BLL
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.OrderHistory">
+            <summary>
+            Output page with information about current user orders and work with user actions
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.ChangeOrderStatus(System.Int32)">
+            <summary>
+            Get order from BLL and invoke functions to change order status basing on current user rights
+            </summary>
+            <param name="id">id of order</param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.ChangeOrderStatusByAdmin(ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel)">
+            <summary>
+            Change status of order with admin rigths
+            </summary>
+            <param name="order">order to change status</param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.ChangeOrderStatusByUser(ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel)">
+            <summary>
+            Change status of order with user rigths
+            </summary>
+            <param name="order">order to change status</param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.CreateNewOrder(System.String)">
+            <summary>
+            Create new order
+            </summary>
+            <param name="id">id of product that will be ordered</param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.IsValidEmail(System.String)">
+            <summary>
+            Check is entered email strin is valid
+            </summary>
+            <param name="email">email to check</param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.Header">
+            <summary>
+            Output common page information
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.WriteAdministratorMainFunctions">
+            <summary>
+            Output functions for admins
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.WriteRegisteredUserMainFunctions">
+            <summary>
+            Output functions for registered users
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.WriteGuestMainFunctions">
+            <summary>
+            Output functions for guests
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.OutputUser(ConsoleEShopMultilayered.BLL.VievModels.UsersViewModel)">
+            <summary>
+            Output formated user information
+            </summary>
+            <param name="user">object with user information </param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.OutputProduct(ConsoleEShopMultilayered.DAL.Models.Product)">
+            <summary>
+            Output formated product information
+            </summary>
+            <param name="product">object with product information </param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.OutputOrder(ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel)">
+            <summary>
+            Output formated order information
+            </summary>
+            <param name="order">object with order information </param>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.Clear">
+            <summary>
+            Clear console and invoke outputing common page information
+            </summary>
+        </member>
+        <member name="M:ConsoleEShopMultilayered.PL.ConsoleUI.GetUserText">
+            <summary>
+            Return user action from console
+            </summary>
+        </member>
+    </members>
+</doc>

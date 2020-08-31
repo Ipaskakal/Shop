@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsoleEShopMultilayered.BLL</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleEShopMultilayered.BLL.Controller">
+            <summary>
+            Controller that incapsulate all BLL layer
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.Controller.UserController">
+            <summary>
+            Controller for requests about users
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.Controller.ProductController">
+            <summary>
+            Controller for requests about products
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.Controller.OrderController">
+            <summary>
+            Controller for requests about orders
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controller.#ctor">
+            <summary>
+            Constructor that init controllers and bind with DAL
+            </summary> 
+        </member>
+        <member name="T:ConsoleEShopMultilayered.BLL.Controllers.OrderController">
+            <summary>
+            Controller for requests about orders
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.OrderController.#ctor(ConsoleEShopMultilayered.DAL.Repository.IRepository.IProductRepository,ConsoleEShopMultilayered.DAL.Repository.IRepository.IUserRepository,ConsoleEShopMultilayered.DAL.Repository.IRepository.IOrderRepository)">
+            <summary>
+            Constructor that gets user, product, order repositories
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.OrderController.AddOrder(ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel)">
+            <summary>
+            add new order
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.OrderController.GetOrdersOfUser(System.String)">
+            <summary>
+            Get orders of user
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.OrderController.GetOrderById(System.Int32)">
+             <summary>
+            Get order by order id
+             </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.OrderController.UpdateStatebyId(System.Int32,ConsoleEShopMultilayered.DAL.Models.OrderState)">
+            <summary>
+            Update state of order
+            </summary> 
+        </member>
+        <member name="T:ConsoleEShopMultilayered.BLL.Controllers.ProductController">
+            <summary>
+            Controller for requests about products
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.ProductController.#ctor(ConsoleEShopMultilayered.DAL.Repository.IRepository.IProductRepository)">
+            <summary>
+            Constructor that gets product repositoriy
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.ProductController.GetListOfProducts">
+            <summary>
+            Fet all products
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.ProductController.AddProduct(ConsoleEShopMultilayered.DAL.Models.Product)">
+            <summary>
+            Try to add new product
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.ProductController.FindProductsbyName(System.String)">
+            <summary>
+            Get existing products by part of name
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.ProductController.GetProductByKey(System.String)">
+            <summary>
+            Get product by id
+            </summary> 
+        </member>
+        <member name="T:ConsoleEShopMultilayered.BLL.Controllers.UserController">
+            <summary>
+            Controller for requests about users
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.UserController.#ctor(ConsoleEShopMultilayered.DAL.Repository.IRepository.IUserRepository)">
+            <summary>
+            Constructor that gets user repository
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.UserController.SignUpUser(ConsoleEShopMultilayered.BLL.VievModels.RegisterUserViewModel)">
+            <summary>
+            Try to add new user
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.UserController.SignInUser(ConsoleEShopMultilayered.BLL.VievModels.RegisterUserViewModel)">
+            <summary>
+            try to find and check registered user
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.UserController.GetUser(System.String)">
+            <summary>
+            try to find registered user
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.UserController.GetListOfUsers">
+            <summary>
+            get all users
+            </summary> 
+        </member>
+        <member name="M:ConsoleEShopMultilayered.BLL.Controllers.UserController.UpdateUser(ConsoleEShopMultilayered.BLL.VievModels.UsersViewModel,ConsoleEShopMultilayered.BLL.VievModels.UsersViewModel)">
+            <summary>
+            update user information
+            </summary> 
+        </member>
+        <member name="T:ConsoleEShopMultilayered.BLL.IController">
+            <summary>
+            Interface for controller that incapsulate all BLL layer
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.IController.UserController">
+            <summary>
+            Controller for requests about users
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.IController.ProductController">
+            <summary>
+            Controller for requests about products
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.IController.OrderController">
+            <summary>
+            Controller for requests about orders
+            </summary> 
+        </member>
+        <member name="T:ConsoleEShopMultilayered.BLL.Mapping">
+            <summary>
+            Configuration for mapping objects from DAL models into PL models 
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.Mapping.Mapper">
+            <summary>
+            mapper object to map
+            </summary> 
+        </member>
+        <member name="T:ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel">
+            <summary>
+            model to output order
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel.Id">
+            <summary>
+            id
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel.EmailUser">
+            <summary>
+            email user
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel.IdProduct">
+            <summary>
+            id product
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel.Price">
+            <summary>
+            price
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel.State">
+            <summary>
+            state
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel.Name">
+            <summary>
+            name
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.OrderViewModel.Description">
+            <summary>
+            description
+            </summary> 
+        </member>
+        <member name="T:ConsoleEShopMultilayered.BLL.VievModels.RegisterUserViewModel">
+            <summary>
+            model to sign up user
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.RegisterUserViewModel.Email">
+            <summary>
+            email
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.RegisterUserViewModel.UserName">
+            <summary>
+            username
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.RegisterUserViewModel.Password">
+            <summary>
+            password
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.RegisterUserViewModel.ConfirmPassword">
+            <summary>
+            confirm password
+            </summary> 
+        </member>
+        <member name="T:ConsoleEShopMultilayered.BLL.VievModels.UsersViewModel">
+            <summary>
+            model to output user
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.UsersViewModel.Email">
+            <summary>
+            email
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.UsersViewModel.UserName">
+            <summary>
+            username
+            </summary> 
+        </member>
+        <member name="P:ConsoleEShopMultilayered.BLL.VievModels.UsersViewModel.Password">
+            <summary>
+            password
+            </summary> 
+        </member>
+    </members>
+</doc>

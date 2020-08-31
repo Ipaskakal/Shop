@@ -4,8 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\domal\Desktop\ЕПАМ practice\Architecture\consoleeshopmultilayered\ConsoleEShopMultilayered\ConsoleEShopMultilayered.DAL\ConsoleEShopMultilayered.DAL.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Moq" Version="4.14.5" />
+    <PackageReference Include="Ninject" Version="3.3.4" />
   </ItemGroup>
 
 </Project>

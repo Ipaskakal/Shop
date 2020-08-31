@@ -5,6 +5,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\domal\Desktop\ЕПАМ practice\Architecture\consoleeshopmultilayered\ConsoleEShopMultilayered\ConsoleEShopMultilayered.PL\ConsoleEShopMultilayered.PL.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ninject" Version="3.3.4" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\ConsoleEShopMultilayered.BLL\ConsoleEShopMultilayered.BLL.csproj" />
     <ProjectReference Include="..\ConsoleEShopMultilayered.DAL\ConsoleEShopMultilayered.DAL.csproj" />

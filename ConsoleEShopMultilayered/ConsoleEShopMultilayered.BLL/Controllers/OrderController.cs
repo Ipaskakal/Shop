@@ -5,12 +5,18 @@ using System.Collections.Generic;
 
 namespace ConsoleEShopMultilayered.BLL.Controllers
 {
+    /// <summary>
+    /// Controller for requests about orders
+    /// </summary> 
     public class OrderController
     {
         readonly IProductRepository productRepository;
         readonly IUserRepository userRepository;
         readonly IOrderRepository orderRepository;
 
+        /// <summary>
+        /// Constructor that gets user, product, order repositories
+        /// </summary> 
         public OrderController(IProductRepository productRepository, IUserRepository userRepository, IOrderRepository orderRepository)
         {
             this.productRepository = productRepository;
@@ -18,6 +24,9 @@ namespace ConsoleEShopMultilayered.BLL.Controllers
             this.orderRepository = orderRepository;
         }
 
+        /// <summary>
+        /// add new order
+        /// </summary> 
         public void AddOrder(OrderViewModel viewOrder)
         {
             Order order = Mapping.Mapper.Map<OrderViewModel, Order>(viewOrder);
@@ -25,6 +34,9 @@ namespace ConsoleEShopMultilayered.BLL.Controllers
             this.orderRepository.Add(order);
         }
 
+        /// <summary>
+        /// Get orders of user
+        /// </summary> 
         public List<OrderViewModel> GetOrdersOfUser(string email)
         {
             var user = this.userRepository.FindItemByKey(email);
@@ -38,6 +50,9 @@ namespace ConsoleEShopMultilayered.BLL.Controllers
             return viewOrders;
         }
 
+        /// <summary>
+        ///Get order by order id
+        /// </summary> 
         public OrderViewModel GetOrderById(int id)
         {
             var order = this.orderRepository.FindItemById(id);
@@ -47,6 +62,9 @@ namespace ConsoleEShopMultilayered.BLL.Controllers
             return viewOrder;
         }
 
+        /// <summary>
+        /// Update state of order
+        /// </summary> 
         public bool UpdateStatebyId(int id, OrderState state)
         {
             return this.orderRepository.UpdateState(id, state);
